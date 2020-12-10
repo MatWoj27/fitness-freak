@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Fitness Freak</string>
+    <string name="go_to_weight_workouts_btn_content_description">Go to weight workouts</string>
 </resources>
