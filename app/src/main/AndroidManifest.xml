@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".weightworkout.WeightWorkoutActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/WeightWorkoutActivityTheme" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

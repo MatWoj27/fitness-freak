@@ -11,7 +11,7 @@
         android:layout_height="80dp"
         android:layout_centerInParent="true"
         android:background="@drawable/rounded_square_background"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:backgroundTint="@color/weightPrimary"
         android:clickable="true"
         android:contentDescription="@string/go_to_weight_workouts_btn_content_description"
         android:elevation="8dp"
