@@ -1,17 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".weightworkout.WeightWorkoutActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/weightPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        android:layout_height="@dimen/workout_toolbar_height"
+        android:background="@drawable/rounded_bottom_background"
+        android:backgroundTint="@color/weightPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/up_navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginVertical="8dp"
+                android:layout_marginLeft="12dp"
+                android:clickable="true"
+                android:contentDescription="@string/up_navigation_arrow_content_description"
+                android:src="?attr/homeAsUpIndicator" />
+
+            <TextView
+                android:id="@+id/workout_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:text="Push Volume"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/show_calendar_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/oval_background"
+                android:backgroundTint="@android:color/white"
+                android:clickable="true"
+                android:contentDescription="@string/show_calendar_btn_content_description"
+                android:elevation="2dp"
+                android:padding="8dp"
+                android:src="@drawable/calendar_icon"
+                android:tint="@color/weightPrimary" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>

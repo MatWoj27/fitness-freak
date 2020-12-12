@@ -16,8 +16,8 @@ class WeightWorkoutActivity : AppCompatActivity() {
     private fun presetToolbar() {
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
-            setDisplayHomeAsUpEnabled(true)
             setDisplayShowTitleEnabled(false)
         }
+        up_navigation.setOnClickListener { onNavigateUp() }
     }
 }
