@@ -6,6 +6,7 @@ import com.example.fitnessfreak.R
 import kotlinx.android.synthetic.main.activity_weight_workout.*
 
 class WeightWorkoutActivity : AppCompatActivity() {
+    private lateinit var exerciseAdapter: ExerciseAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
