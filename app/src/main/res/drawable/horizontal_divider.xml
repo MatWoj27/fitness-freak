@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="@dimen/horizontal_divider_inset"
+    android:insetRight="@dimen/horizontal_divider_inset">
+    <shape>
+        <size android:height="1dp" />
+        <solid android:color="@color/lightGray" />
+    </shape>
+</inset>
