@@ -4,5 +4,6 @@
     <string name="up_navigation_arrow_content_description">Navigate up</string>
     <string name="show_calendar_btn_content_description">Show calendar</string>
     <string name="sets">Sets</string>
+    <string name="weight">Weight (kg)</string>
     <string name="reps">Reps</string>
 </resources>
