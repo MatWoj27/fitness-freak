@@ -2,6 +2,7 @@ package com.example.fitnessfreak.weightworkout
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessfreak.databinding.ExerciseItemBinding
 import com.example.fitnessfreak.weightworkout.models.WeightExercise
@@ -14,6 +15,10 @@ class ExerciseAdapter(private val exercises: MutableList<WeightExercise>) :
 
         fun bind(exercise: WeightExercise) {
             binding.exercise = exercise
+            binding.setsList.apply {
+                layoutManager = LinearLayoutManager(binding.root.context)
+                adapter = SetAdapter(exercise.sets)
+            }
         }
     }
 

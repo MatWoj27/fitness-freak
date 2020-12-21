@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="setNumber"
+            type="Integer" />
+
+        <variable
+            name="weightSet"
+            type="com.example.fitnessfreak.weightworkout.models.WeightSet" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/set_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@{String.valueOf(setNumber)}"
+            android:textColor="@color/darkGray" />
+
+        <TextView
+            android:id="@+id/weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@{String.valueOf(weightSet.weight)}"
+            android:textColor="@color/darkGray" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="x"
+            android:textColor="@color/darkGray" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@{String.valueOf(weightSet.reps)}"
+            android:textColor="@color/darkGray" />
+
+    </LinearLayout>
+</layout>
