@@ -4,4 +4,5 @@
     <dimen name="workout_toolbar_bottom_radius">12dp</dimen>
     <dimen name="circular_button_size">48dp</dimen>
     <dimen name="horizontal_divider_inset">8dp</dimen>
+    <dimen name="set_number_view_diameter">20dp</dimen>
 </resources>

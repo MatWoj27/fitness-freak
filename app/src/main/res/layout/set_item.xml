@@ -18,14 +18,22 @@
         android:orientation="horizontal"
         android:weightSum="4">
 
-        <TextView
-            android:id="@+id/set_num"
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="@{String.valueOf(setNumber)}"
-            android:textColor="@color/darkGray" />
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/set_num"
+                android:layout_width="@dimen/set_number_view_diameter"
+                android:layout_height="@dimen/set_number_view_diameter"
+                android:layout_gravity="center"
+                android:background="@drawable/oval_stroke_background"
+                android:gravity="center"
+                android:text="@{String.valueOf(setNumber)}"
+                android:textColor="@color/darkGray" />
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/weight"
