@@ -33,4 +33,10 @@ class ExerciseAdapter(private val exercises: MutableList<WeightExercise>) :
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         holder.bind(exercises[position])
     }
+
+    fun setExercises(exercises: List<WeightExercise>) {
+        this.exercises.clear()
+        this.exercises.addAll(exercises)
+        notifyDataSetChanged()
+    }
 }
