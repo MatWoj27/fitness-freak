@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitnessfreak.R
 import com.example.fitnessfreak.setDivider
+import com.example.fitnessfreak.weightworkout.models.WeightExercise
+import com.example.fitnessfreak.weightworkout.models.WeightSet
 import kotlinx.android.synthetic.main.activity_weight_workout.*
 
 class WeightWorkoutActivity : AppCompatActivity() {
@@ -34,6 +36,22 @@ class WeightWorkoutActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@WeightWorkoutActivity)
             adapter = exerciseAdapter
             setDivider(R.drawable.horizontal_divider)
+        }
+        show_calendar_btn.setOnClickListener {
+            exerciseAdapter.setExercises(
+                listOf(
+                    WeightExercise(
+                        "Bench press", listOf(
+                            WeightSet(100, 8), WeightSet(100, 8), WeightSet(100, 8)
+                        )
+                    ),
+                    WeightExercise(
+                        "Dead Lift", listOf(
+                            WeightSet(120, 8), WeightSet(120, 8), WeightSet(120, 8)
+                        )
+                    )
+                )
+            )
         }
     }
 }
