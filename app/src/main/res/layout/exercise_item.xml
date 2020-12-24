@@ -77,14 +77,24 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/exercise_volume"
+            <FrameLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@{String.valueOf(exercise.exerciseVolume)}"
-                android:textColor="@color/weightPrimary" />
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/exercise_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/weightPrimary"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:singleLine="true"
+                    android:text="@{String.valueOf(exercise.exerciseVolume)}"
+                    android:textColor="@android:color/white" />
+
+            </FrameLayout>
 
         </LinearLayout>
     </LinearLayout>
