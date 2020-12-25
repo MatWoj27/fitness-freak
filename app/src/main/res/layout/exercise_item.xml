@@ -2,6 +2,9 @@
 <layout>
 
     <data>
+
+        <import type="android.view.View" />
+
         <variable
             name="exercise"
             type="com.example.fitnessfreak.weightworkout.models.WeightExercise" />
@@ -92,7 +95,8 @@
                     android:padding="4dp"
                     android:singleLine="true"
                     android:text="@{String.valueOf(exercise.exerciseVolume)}"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:visibility="@{exercise.exerciseVolume == 0 ? View.INVISIBLE : View.VISIBLE}" />
 
             </FrameLayout>
 
