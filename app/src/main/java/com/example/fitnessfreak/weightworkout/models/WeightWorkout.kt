@@ -15,5 +15,6 @@ data class WeightWorkout(
 ) {
     companion object {
         const val TABLE_NAME = "weight_workouts"
+        const val DATE_FORMAT = "d-M-yyyy"
     }
 }
