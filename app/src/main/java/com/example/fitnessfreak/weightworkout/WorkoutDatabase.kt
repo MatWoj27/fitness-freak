@@ -4,7 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.fitnessfreak.DateUtil
+import com.example.fitnessfreak.weightworkout.models.WeightExercise
+import com.example.fitnessfreak.weightworkout.models.WeightSet
 import com.example.fitnessfreak.weightworkout.models.WeightWorkout
+import java.util.concurrent.Executors
 
 @Database(entities = [WeightWorkout::class], version = 1)
 abstract class WorkoutDatabase : RoomDatabase() {
@@ -24,11 +29,43 @@ abstract class WorkoutDatabase : RoomDatabase() {
                             context,
                             WorkoutDatabase::class.java,
                             DATABASE_NAME
-                        ).build()
+                        )
+                            .addCallback(populateForTestingCallback)
+                            .build()
                     }
                 }
             }
             return instance!!
+        }
+
+        private val populateForTestingCallback = object : RoomDatabase.Callback() {
+            override fun onOpen(db: SupportSQLiteDatabase) {
+                super.onOpen(db)
+                Executors.newSingleThreadScheduledExecutor().execute {
+                    val exercises = listOf(
+                        WeightExercise(
+                            "Bench press", listOf(
+                                WeightSet(100, 8), WeightSet(100, 8), WeightSet(100, 8)
+                            )
+                        ),
+                        WeightExercise(
+                            "Dead Lift", listOf(
+                                WeightSet(120, 8), WeightSet(120, 8), WeightSet(120, 8)
+                            )
+                        )
+                    )
+                    instance?.apply {
+                        getWeightWorkoutDao().insert(
+                            WeightWorkout(
+                                0,
+                                "Push Volume",
+                                DateUtil.getCurrentDate(),
+                                exercises
+                            )
+                        )
+                    }
+                }
+            }
         }
     }
 }
