@@ -21,6 +21,7 @@ class WeightWorkoutActivity : AppCompatActivity() {
         presetToolbar()
         viewModel = ViewModelProvider(this).get(WeightWorkoutViewModel::class.java)
         viewModel.getWeightWorkoutLiveData().observe(this, Observer { loadWorkout(it) })
+        viewModel.getDisplayDateLiveData().observe(this, Observer { date.text = it })
     }
 
     private fun presetToolbar() {
