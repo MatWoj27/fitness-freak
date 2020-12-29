@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.fitnessfreak.DateUtil
+import com.example.fitnessfreak.common.DateUtil
 import com.example.fitnessfreak.weightworkout.models.WeightExercise
 import com.example.fitnessfreak.weightworkout.models.WeightSet
 import com.example.fitnessfreak.weightworkout.models.WeightWorkout

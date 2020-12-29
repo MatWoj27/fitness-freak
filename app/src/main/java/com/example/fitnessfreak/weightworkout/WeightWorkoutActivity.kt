@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitnessfreak.R
-import com.example.fitnessfreak.setDivider
+import com.example.fitnessfreak.common.setDivider
 import com.example.fitnessfreak.weightworkout.models.WeightExercise
 import com.example.fitnessfreak.weightworkout.models.WeightWorkout
 import kotlinx.android.synthetic.main.activity_weight_workout.*

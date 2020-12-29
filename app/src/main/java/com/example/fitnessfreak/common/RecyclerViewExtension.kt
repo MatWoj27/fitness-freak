@@ -1,4 +1,4 @@
-package com.example.fitnessfreak
+package com.example.fitnessfreak.common
 
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat

@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.example.fitnessfreak.DateUtil
+import com.example.fitnessfreak.common.DateUtil
 import com.example.fitnessfreak.weightworkout.models.WeightWorkout
 import java.text.SimpleDateFormat
 import java.util.Locale

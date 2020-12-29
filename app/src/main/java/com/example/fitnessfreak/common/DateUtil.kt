@@ -1,4 +1,4 @@
-package com.example.fitnessfreak
+package com.example.fitnessfreak.common
 
 import com.example.fitnessfreak.weightworkout.models.WeightWorkout
 import java.text.SimpleDateFormat
