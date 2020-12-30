@@ -19,9 +19,18 @@ class WeightWorkoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weight_workout)
         presetToolbar()
-        viewModel = ViewModelProvider(this).get(WeightWorkoutViewModel::class.java)
-        viewModel.getWeightWorkoutLiveData().observe(this, Observer { loadWorkout(it) })
-        viewModel.getDisplayDateLiveData().observe(this, Observer { date.text = it })
+        initViewModel()
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(this).get(WeightWorkoutViewModel::class.java).apply {
+            getWeightWorkoutLiveData().observe(
+                this@WeightWorkoutActivity,
+                Observer { loadWorkout(it) })
+            getDisplayDateLiveData().observe(
+                this@WeightWorkoutActivity,
+                Observer { date.text = it })
+        }
     }
 
     private fun presetToolbar() {
