@@ -32,9 +32,9 @@ class WeightWorkoutActivity : AppCompatActivity() {
         up_navigation.setOnClickListener { onNavigateUp() }
     }
 
-    private fun loadWorkout(weightWorkout: WeightWorkout) {
-        workout_name.text = weightWorkout.name
-        presetExercisesList(weightWorkout.exercises)
+    private fun loadWorkout(weightWorkout: WeightWorkout?) = weightWorkout?.let {
+        workout_name.text = it.name
+        presetExercisesList(it.exercises)
     }
 
     private fun presetExercisesList(exercises: List<WeightExercise>) {

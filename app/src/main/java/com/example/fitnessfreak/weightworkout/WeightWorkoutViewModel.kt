@@ -2,6 +2,7 @@ package com.example.fitnessfreak.weightworkout
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.fitnessfreak.common.DateUtil
@@ -14,7 +15,7 @@ class WeightWorkoutViewModel(application: Application) : AndroidViewModel(applic
     private var currentDateLiveData = MutableLiveData<String>(DateUtil.getCurrentDate())
     private var weightWorkoutLiveData: MutableLiveData<WeightWorkout>? = null
 
-    fun getWeightWorkoutLiveData() =
+    fun getWeightWorkoutLiveData(): LiveData<WeightWorkout?> =
         Transformations.switchMap(repository.getWeightWorkoutByDate(currentDateLiveData.value!!)) {
             if (weightWorkoutLiveData == null) {
                 weightWorkoutLiveData = MutableLiveData(it)
