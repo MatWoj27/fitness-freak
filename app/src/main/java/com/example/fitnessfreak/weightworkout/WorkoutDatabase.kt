@@ -59,7 +59,7 @@ abstract class WorkoutDatabase : RoomDatabase() {
                             WeightWorkout(
                                 0,
                                 "Push Volume",
-                                DateUtil.getCurrentDate(),
+                                DateUtil.getCurrentDate(WeightWorkout.DATE_FORMAT),
                                 exercises
                             )
                         )

@@ -12,7 +12,8 @@ import java.util.Locale
 
 class WeightWorkoutViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = WorkoutRepository(application)
-    private var currentDateLiveData = MutableLiveData<String>(DateUtil.getCurrentDate())
+    private var currentDateLiveData =
+        MutableLiveData<String>(DateUtil.getCurrentDate(WeightWorkout.DATE_FORMAT))
     private var weightWorkoutLiveData: MutableLiveData<WeightWorkout>? = null
 
     fun getWeightWorkoutLiveData(): LiveData<WeightWorkout?> =
