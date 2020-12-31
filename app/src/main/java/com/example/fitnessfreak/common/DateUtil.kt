@@ -13,5 +13,35 @@ class DateUtil {
                 Locale.getDefault()
             ).format(calendar.time)
         }
+
+        fun getNextDate(
+            currentDate: String,
+            inputPattern: String,
+            outputPattern: String
+        ): String =
+            changeDateOfDays(currentDate, inputPattern, outputPattern, 1)
+
+        fun getPreviousDate(
+            currentDate: String,
+            inputPattern: String,
+            outputPattern: String
+        ): String =
+            changeDateOfDays(currentDate, inputPattern, outputPattern, -1)
+
+        private fun changeDateOfDays(
+            currentDate: String,
+            inputPattern: String,
+            outputPattern: String,
+            shift: Int
+        ): String {
+            val dateFormat = SimpleDateFormat(inputPattern, Locale.getDefault())
+            val date = Calendar.getInstance().apply {
+                time = dateFormat.parse(currentDate)
+                add(Calendar.DAY_OF_YEAR, shift)
+            }.time
+            return dateFormat.apply {
+                applyPattern(outputPattern)
+            }.format(date)
+        }
     }
 }

@@ -20,6 +20,8 @@ class WeightWorkoutActivity : AppCompatActivity() {
         setContentView(R.layout.activity_weight_workout)
         presetToolbar()
         initViewModel()
+        previous_date.setOnClickListener { viewModel.previousDate() }
+        next_date.setOnClickListener { viewModel.nextDate() }
     }
 
     private fun initViewModel() {

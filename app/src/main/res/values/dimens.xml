@@ -5,4 +5,5 @@
     <dimen name="circular_button_size">48dp</dimen>
     <dimen name="horizontal_divider_inset">8dp</dimen>
     <dimen name="set_number_view_diameter">20dp</dimen>
+    <dimen name="toolbar_date_text_size">16sp</dimen>
 </resources>

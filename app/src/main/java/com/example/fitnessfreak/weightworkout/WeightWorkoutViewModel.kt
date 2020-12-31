@@ -34,6 +34,22 @@ class WeightWorkoutViewModel(application: Application) : AndroidViewModel(applic
         }.format(date)
     }
 
+    fun nextDate() = currentDateLiveData.value?.let {
+        currentDateLiveData.value = DateUtil.getNextDate(
+            it,
+            WeightWorkout.DATE_FORMAT,
+            WeightWorkout.DATE_FORMAT
+        )
+    }
+
+    fun previousDate() = currentDateLiveData.value?.let {
+        currentDateLiveData.value = DateUtil.getPreviousDate(
+            it,
+            WeightWorkout.DATE_FORMAT,
+            WeightWorkout.DATE_FORMAT
+        )
+    }
+
     companion object {
         const val DISPLAY_DATE_FORMAT = "dd-MM-yyyy"
     }
