@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitnessfreak.R
 import com.example.fitnessfreak.common.setDivider
+import com.example.fitnessfreak.common.setTextWithAnimation
 import com.example.fitnessfreak.weightworkout.models.WeightExercise
 import com.example.fitnessfreak.weightworkout.models.WeightWorkout
 import kotlinx.android.synthetic.main.activity_weight_workout.*
@@ -31,7 +32,12 @@ class WeightWorkoutActivity : AppCompatActivity() {
                 Observer { loadWorkout(it) })
             getDisplayDateLiveData().observe(
                 this@WeightWorkoutActivity,
-                Observer { date.text = it })
+                Observer {
+                    date.setTextWithAnimation(
+                        it.first,
+                        it.second
+                    )
+                })
         }
     }
 

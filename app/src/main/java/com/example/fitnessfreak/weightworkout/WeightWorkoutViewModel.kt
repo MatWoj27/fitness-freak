@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.fitnessfreak.common.DateUtil
+import com.example.fitnessfreak.common.TextViewAnimation
 import com.example.fitnessfreak.weightworkout.models.WeightWorkout
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -13,11 +14,16 @@ import java.util.Locale
 class WeightWorkoutViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = WorkoutRepository(application)
     private var currentDateLiveData =
-        MutableLiveData<String>(DateUtil.getCurrentDate(WeightWorkout.DATE_FORMAT))
+        MutableLiveData<Pair<String, TextViewAnimation>>(
+            Pair(
+                DateUtil.getCurrentDate(WeightWorkout.DATE_FORMAT),
+                TextViewAnimation.NO_ANIMATION
+            )
+        )
     private var weightWorkoutLiveData: MutableLiveData<WeightWorkout>? = null
 
     fun getWeightWorkoutLiveData(): LiveData<WeightWorkout?> =
-        Transformations.switchMap(repository.getWeightWorkoutByDate(currentDateLiveData.value!!)) {
+        Transformations.switchMap(repository.getWeightWorkoutByDate(currentDateLiveData.value!!.first)) {
             if (weightWorkoutLiveData == null) {
                 weightWorkoutLiveData = MutableLiveData(it)
             } else {
@@ -28,25 +34,34 @@ class WeightWorkoutViewModel(application: Application) : AndroidViewModel(applic
 
     fun getDisplayDateLiveData() = Transformations.map(currentDateLiveData) {
         val dateFormat = SimpleDateFormat(WeightWorkout.DATE_FORMAT, Locale.getDefault())
-        val date = dateFormat.parse(it)
-        dateFormat.apply {
-            applyPattern(DISPLAY_DATE_FORMAT)
-        }.format(date)
+        val date = dateFormat.parse(it.first)
+        Pair(
+            dateFormat.apply {
+                applyPattern(DISPLAY_DATE_FORMAT)
+            }.format(date),
+            it.second
+        )
     }
 
     fun nextDate() = currentDateLiveData.value?.let {
-        currentDateLiveData.value = DateUtil.getNextDate(
-            it,
-            WeightWorkout.DATE_FORMAT,
-            WeightWorkout.DATE_FORMAT
+        currentDateLiveData.value = Pair(
+            DateUtil.getNextDate(
+                it.first,
+                WeightWorkout.DATE_FORMAT,
+                WeightWorkout.DATE_FORMAT
+            ),
+            TextViewAnimation.SWIPE_RTL
         )
     }
 
     fun previousDate() = currentDateLiveData.value?.let {
-        currentDateLiveData.value = DateUtil.getPreviousDate(
-            it,
-            WeightWorkout.DATE_FORMAT,
-            WeightWorkout.DATE_FORMAT
+        currentDateLiveData.value = Pair(
+            DateUtil.getPreviousDate(
+                it.first,
+                WeightWorkout.DATE_FORMAT,
+                WeightWorkout.DATE_FORMAT
+            ),
+            TextViewAnimation.SWIPE_LTR
         )
     }
 
