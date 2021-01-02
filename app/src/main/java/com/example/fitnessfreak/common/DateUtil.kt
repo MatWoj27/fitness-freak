@@ -6,13 +6,11 @@ import java.util.Locale
 
 class DateUtil {
     companion object {
-        fun getCurrentDate(pattern: String): String {
-            val calendar = Calendar.getInstance()
-            return SimpleDateFormat(
-                pattern,
-                Locale.getDefault()
-            ).format(calendar.time)
-        }
+        fun getCurrentDate(pattern: String): String = SimpleDateFormat(
+            pattern,
+            Locale.getDefault()
+        ).format(Calendar.getInstance().time)
+
 
         fun getNextDate(
             currentDate: String,
