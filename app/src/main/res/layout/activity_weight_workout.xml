@@ -68,11 +68,11 @@
 
                 <TextView
                     android:id="@+id/previous_date"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="8dp"
                     android:layout_toLeftOf="@+id/date"
                     android:gravity="center_vertical|right"
+                    android:paddingHorizontal="16dp"
                     android:text="&lt;"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/toolbar_date_text_size" />
@@ -82,17 +82,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="8dp"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/toolbar_date_text_size" />
 
                 <TextView
                     android:id="@+id/next_date"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="8dp"
                     android:layout_toRightOf="@+id/date"
                     android:gravity="center_vertical|left"
+                    android:paddingHorizontal="16dp"
                     android:text="&gt;"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/toolbar_date_text_size" />
