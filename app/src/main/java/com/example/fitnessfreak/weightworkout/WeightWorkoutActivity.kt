@@ -2,6 +2,7 @@ package com.example.fitnessfreak.weightworkout
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.example.fitnessfreak.common.setTextWithAnimation
 import com.example.fitnessfreak.weightworkout.models.WeightExercise
 import com.example.fitnessfreak.weightworkout.models.WeightWorkout
 import kotlinx.android.synthetic.main.activity_weight_workout.*
+import kotlinx.android.synthetic.main.weight_workout_toolbar.*
 
 class WeightWorkoutActivity : AppCompatActivity() {
     private lateinit var exerciseAdapter: ExerciseAdapter
@@ -42,7 +44,7 @@ class WeightWorkoutActivity : AppCompatActivity() {
     }
 
     private fun presetToolbar() {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar as Toolbar?)
         supportActionBar?.apply {
             setDisplayShowTitleEnabled(false)
         }
