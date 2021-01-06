@@ -2,6 +2,7 @@ package com.example.fitnessfreak.weightworkout
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -52,8 +53,20 @@ class WeightWorkoutActivity : AppCompatActivity() {
     }
 
     private fun loadWorkout(weightWorkout: WeightWorkout?) = weightWorkout?.let {
+        showExercisesList()
         workout_name.text = it.name
         presetExercisesList(it.exercises)
+    } ?: showNoWorkoutScreen()
+
+    private fun showExercisesList() {
+        no_workout_screen.visibility = View.INVISIBLE
+        exercise_list.visibility = View.VISIBLE
+    }
+
+    private fun showNoWorkoutScreen() {
+        no_workout_screen.visibility = View.VISIBLE
+        exercise_list.visibility = View.INVISIBLE
+        workout_name.text = getString(R.string.rest_day)
     }
 
     private fun presetExercisesList(exercises: List<WeightExercise>) {

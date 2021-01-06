@@ -13,14 +13,29 @@
         android:layout_height="@dimen/workout_toolbar_height"
         android:layout_alignParentTop="true" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/exercise_list"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@+id/toolbar"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="4dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_square_background"
-        android:backgroundTint="@android:color/white" />
+        android:layout_alignParentBottom="true">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/exercise_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_square_background"
+            android:backgroundTint="@android:color/white" />
+
+        <include
+            android:id="@+id/no_workout_screen"
+            layout="@layout/no_workout_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+    </FrameLayout>
+
 </RelativeLayout>
