@@ -6,4 +6,5 @@
     <dimen name="horizontal_divider_inset">8dp</dimen>
     <dimen name="set_number_view_diameter">20dp</dimen>
     <dimen name="toolbar_date_text_size">16sp</dimen>
+    <dimen name="oval_workout_icon_diameter">100dp</dimen>
 </resources>

@@ -6,4 +6,7 @@
     <string name="sets">Sets</string>
     <string name="weight">Weight (kg)</string>
     <string name="reps">Reps</string>
+    <string name="no_workout_planned">You haven\'t planned a workout for that day.</string>
+    <string name="add_workout">Add Workout</string>
+    <string name="workout_icon">Workout icon</string>
 </resources>
