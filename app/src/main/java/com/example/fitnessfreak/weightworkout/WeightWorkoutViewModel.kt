@@ -23,13 +23,15 @@ class WeightWorkoutViewModel(application: Application) : AndroidViewModel(applic
     private var weightWorkoutLiveData: MutableLiveData<WeightWorkout>? = null
 
     fun getWeightWorkoutLiveData(): LiveData<WeightWorkout?> =
-        Transformations.switchMap(repository.getWeightWorkoutByDate(currentDateLiveData.value!!.first)) {
-            if (weightWorkoutLiveData == null) {
-                weightWorkoutLiveData = MutableLiveData(it)
-            } else {
-                weightWorkoutLiveData!!.value = it
+        Transformations.switchMap(currentDateLiveData) {
+            Transformations.map(repository.getWeightWorkoutByDate(it.first)) { workout ->
+                if (weightWorkoutLiveData == null) {
+                    weightWorkoutLiveData = MutableLiveData(workout)
+                } else {
+                    weightWorkoutLiveData!!.apply { value = workout }
+                }
+                workout
             }
-            weightWorkoutLiveData
         }
 
     fun getDisplayDateLiveData() = Transformations.map(currentDateLiveData) {
